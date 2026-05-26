@@ -33,7 +33,9 @@ public class RegisterController {
      */
     @GetMapping("/register")
     public String showRegisterPage(Model model) {
+
         model.addAttribute("user", new User());
+
         return "register";
     }
 
@@ -45,7 +47,14 @@ public class RegisterController {
      */
     @PostMapping("/register")
     public String registerUser(User user) {
+
+        // Set default balance for new users
+        user.setBalance(0.0);
+
+        // Save user in database
         userService.saveUser(user);
+
+        // Redirect to home page
         return "redirect:/";
     }
 }
