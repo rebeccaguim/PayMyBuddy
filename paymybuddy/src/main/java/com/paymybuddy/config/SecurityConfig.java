@@ -20,15 +20,26 @@ public class SecurityConfig {
      * Configures application security rules.
      */
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http,
-                                                   AuthenticationProvider authenticationProvider) throws Exception {
+    public SecurityFilterChain securityFilterChain(
+            HttpSecurity http,
+            AuthenticationProvider authenticationProvider) throws Exception {
+
         http
                 .csrf(csrf -> csrf.disable())
+
                 .authenticationProvider(authenticationProvider)
+
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/", "/register", "/login").permitAll()
+                        .requestMatchers(
+                                "/",
+                                "/login",
+                                "/register",
+                                "/css/**"
+                        ).permitAll()
+
                         .anyRequest().authenticated()
                 )
+
                 .formLogin(form -> form
                         .loginPage("/login")
                         .usernameParameter("username")
@@ -37,6 +48,7 @@ public class SecurityConfig {
                         .failureUrl("/login?error")
                         .permitAll()
                 )
+
                 .logout(logout -> logout
                         .logoutSuccessUrl("/")
                         .permitAll()
@@ -49,10 +61,13 @@ public class SecurityConfig {
      * Authentication provider using users from the database.
      */
     @Bean
-    public AuthenticationProvider authenticationProvider(UserDetailsService userDetailsService,
-                                                         PasswordEncoder passwordEncoder) {
+    public AuthenticationProvider authenticationProvider(
+            UserDetailsService userDetailsService,
+            PasswordEncoder passwordEncoder) {
 
-        DaoAuthenticationProvider provider = new DaoAuthenticationProvider(userDetailsService);
+        DaoAuthenticationProvider provider =
+                new DaoAuthenticationProvider(userDetailsService);
+
         provider.setPasswordEncoder(passwordEncoder);
 
         return provider;
