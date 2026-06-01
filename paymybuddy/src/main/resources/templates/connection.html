@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Add connection - Pay My Buddy</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+
+<nav class="navbar">
+
+    <div class="navbar-left">
+        <span class="navbar-logo">Pay My Buddy</span>
+    </div>
+
+    <div class="navbar-right">
+        <a href="/transfer">Transfer</a>
+        <a href="#">Profile</a>
+        <a href="/connection">Add connection</a>
+        <a href="/logout">Log out</a>
+    </div>
+
+</nav>
+
+<div class="connection-container">
+
+    <form class="connection-form" method="post" action="/connection">
+
+        <label for="email">
+            Search for a connection
+        </label>
+
+        <div class="connection-input-row">
+
+            <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    class="form-input connection-input"
+                    placeholder="Enter an email address"
+                    required>
+
+            <button type="submit" class="orange-button">
+                Add
+            </button>
+
+        </div>
+
+    </form>
+
+</div>
+
+</body>
+
+</html>

@@ -42,6 +42,16 @@ public class TransactionService {
     }
 
     /**
+     * Returns all transactions sent by a user.
+     *
+     * @param sender connected user
+     * @return list of transactions
+     */
+    public List<Transaction> getTransactionsBySender(User sender) {
+        return transactionRepository.findBySender(sender);
+    }
+
+    /**
      * Transfers money between two users.
      * Transaction is automatically rolled back if an error occurs.
      *
@@ -56,27 +66,22 @@ public class TransactionService {
                               Double amount,
                               String description) {
 
-        // Check sender balance
         if (sender.getBalance() < amount) {
             throw new IllegalArgumentException("Insufficient balance");
         }
 
-        // Update balances
         sender.setBalance(sender.getBalance() - amount);
         receiver.setBalance(receiver.getBalance() + amount);
 
-        // Save updated users
         userRepository.save(sender);
         userRepository.save(receiver);
 
-        // Create transaction
         Transaction transaction = new Transaction();
         transaction.setSender(sender);
         transaction.setReceiver(receiver);
         transaction.setAmount(amount);
         transaction.setDescription(description);
 
-        // Save transaction
         transactionRepository.save(transaction);
     }
 }

@@ -24,7 +24,9 @@ public class UserService {
      * @param userRepository repository used for user operations
      * @param passwordEncoder encoder used to hash user passwords
      */
-    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder) {
+    public UserService(UserRepository userRepository,
+                       PasswordEncoder passwordEncoder) {
+
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
     }
@@ -36,6 +38,16 @@ public class UserService {
      */
     public List<User> getAllUsers() {
         return userRepository.findAll();
+    }
+
+    /**
+     * Finds a user by id.
+     *
+     * @param id user id
+     * @return optional user
+     */
+    public Optional<User> getUserById(Long id) {
+        return userRepository.findById(id);
     }
 
     /**
