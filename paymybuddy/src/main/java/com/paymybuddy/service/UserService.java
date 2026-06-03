@@ -70,4 +70,28 @@ public class UserService {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         return userRepository.save(user);
     }
+
+    /**
+     * Updates user profile information.
+     *
+     * @param user user to update
+     * @param username new username
+     * @param email new email
+     * @param password new password
+     */
+    public void updateProfile(
+            User user,
+            String username,
+            String email,
+            String password) {
+
+        user.setUsername(username);
+        user.setEmail(email);
+
+        if (password != null && !password.isBlank()) {
+            user.setPassword(passwordEncoder.encode(password));
+        }
+
+        userRepository.save(user);
+    }
 }

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Profile - Pay My Buddy</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+
+<nav class="navbar">
+    <div class="navbar-left">
+        <span class="navbar-logo">Pay My Buddy</span>
+    </div>
+
+    <div class="navbar-right">
+        <a href="/transfer">Transfer</a>
+        <a href="/profile">Profile</a>
+        <a href="/connection">Add connection</a>
+        <a href="/logout">Log out</a>
+    </div>
+</nav>
+
+<div class="profile-container">
+
+    <form class="profile-form" method="post" action="/profile">
+
+        <div class="profile-row">
+            <label for="username">Username</label>
+            <input
+                    type="text"
+                    id="username"
+                    name="username"
+                    class="form-input"
+                    th:value="${user.username}"
+                    required>
+        </div>
+
+        <div class="profile-row">
+            <label for="email">Mail</label>
+            <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    class="form-input"
+                    th:value="${user.email}"
+                    required>
+        </div>
+
+        <div class="profile-row">
+            <label for="password">Password</label>
+            <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    class="form-input"
+                    placeholder="New password">
+        </div>
+
+        <button type="submit" class="orange-button">
+            Modifier
+        </button>
+
+    </form>
+
+</div>
+
+</body>
+
+</html>
