@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
-    <title>Add connection - Pay My Buddy</title>
+    <title>Ajouter une relation - Pay My Buddy</title>
     <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 
@@ -16,10 +16,10 @@
     </div>
 
     <div class="navbar-right">
-        <a href="/transfer">Transfer</a>
-        <a href="/profile">Profile</a>
-        <a href="/connection">Add connection</a>
-        <a href="/logout">Log out</a>
+        <a href="/transfer">Transferts</a>
+        <a href="/profile">Profil</a>
+        <a href="/connection">Ajouter une relation</a>
+        <a href="/logout">Déconnexion</a>
     </div>
 
 </nav>
@@ -29,7 +29,7 @@
     <form class="connection-form" method="post" action="/connection">
 
         <label for="email">
-            Search for a connection
+            Rechercher une relation
         </label>
 
         <div class="connection-input-row">
@@ -39,11 +39,12 @@
                     id="email"
                     name="email"
                     class="form-input connection-input"
-                    placeholder="Enter an email address"
+                    placeholder="Entrer une adresse e-mail"
+                    aria-label="Adresse e-mail de la relation"
                     required>
 
             <button type="submit" class="orange-button">
-                Add
+                Ajouter
             </button>
 
         </div>

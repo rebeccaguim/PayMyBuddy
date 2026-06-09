@@ -25,6 +25,7 @@
                     th:field="*{username}"
                     class="form-input"
                     placeholder="Username"
+                    aria-label="Username"
                     required>
 
             <input
@@ -32,6 +33,7 @@
                     th:field="*{email}"
                     class="form-input"
                     placeholder="Mail"
+                    aria-label="Email address"
                     required>
 
             <input
@@ -39,11 +41,17 @@
                     th:field="*{password}"
                     class="form-input"
                     placeholder="Mot de passe"
+                    aria-label="Password"
                     required>
 
             <button type="submit" class="form-button">
                 S'inscrire
             </button>
+
+            <p style="margin-top:20px;">
+                Déjà inscrit ?
+                <a href="/login">Se connecter</a>
+            </p>
 
         </form>
 

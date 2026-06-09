@@ -37,7 +37,11 @@ public class TransferController {
     }
 
     @GetMapping("/transfer")
-    public String showTransferPage(Model model, Principal principal) {
+    public String showTransferPage(
+            Model model,
+            Principal principal,
+            @RequestParam(required = false) String error,
+            @RequestParam(required = false) String success) {
 
         User connectedUser = userService.getUserByEmail(principal.getName())
                 .orElseThrow(() -> new IllegalArgumentException("User not found"));
@@ -51,6 +55,8 @@ public class TransferController {
         model.addAttribute("user", connectedUser);
         model.addAttribute("connections", connections);
         model.addAttribute("transactions", transactions);
+        model.addAttribute("error", error);
+        model.addAttribute("success", success);
 
         return "transfer";
     }
@@ -62,14 +68,19 @@ public class TransferController {
             @RequestParam Double amount,
             Principal principal) {
 
-        User sender = userService.getUserByEmail(principal.getName())
-                .orElseThrow(() -> new IllegalArgumentException("Sender not found"));
+        try {
+            User sender = userService.getUserByEmail(principal.getName())
+                    .orElseThrow(() -> new IllegalArgumentException("Sender not found"));
 
-        User receiver = userService.getUserById(receiverId)
-                .orElseThrow(() -> new IllegalArgumentException("Receiver not found"));
+            User receiver = userService.getUserById(receiverId)
+                    .orElseThrow(() -> new IllegalArgumentException("Receiver not found"));
 
-        transactionService.transferMoney(sender, receiver, amount, description);
+            transactionService.transferMoney(sender, receiver, amount, description);
 
-        return "redirect:/transfer";
+            return "redirect:/transfer?success=ok";
+
+        } catch (IllegalArgumentException exception) {
+            return "redirect:/transfer?error=ko";
+        }
     }
 }

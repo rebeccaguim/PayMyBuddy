@@ -1,25 +1,27 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
-    <title>Profile - Pay My Buddy</title>
+    <title>Profil - Pay My Buddy</title>
     <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 
 <body>
 
 <nav class="navbar">
+
     <div class="navbar-left">
         <span class="navbar-logo">Pay My Buddy</span>
     </div>
 
     <div class="navbar-right">
-        <a href="/transfer">Transfer</a>
-        <a href="/profile">Profile</a>
-        <a href="/connection">Add connection</a>
-        <a href="/logout">Log out</a>
+        <a href="/transfer">Transferts</a>
+        <a href="/profile">Profil</a>
+        <a href="/connection">Ajouter une relation</a>
+        <a href="/logout">Déconnexion</a>
     </div>
+
 </nav>
 
 <div class="profile-container">
@@ -27,35 +29,38 @@
     <form class="profile-form" method="post" action="/profile">
 
         <div class="profile-row">
-            <label for="username">Username</label>
+            <label for="username">Nom d'utilisateur</label>
             <input
                     type="text"
                     id="username"
                     name="username"
                     class="form-input"
                     th:value="${user.username}"
+                    aria-label="Nom d'utilisateur"
                     required>
         </div>
 
         <div class="profile-row">
-            <label for="email">Mail</label>
+            <label for="email">E-mail</label>
             <input
                     type="email"
                     id="email"
                     name="email"
                     class="form-input"
                     th:value="${user.email}"
+                    aria-label="Adresse e-mail"
                     required>
         </div>
 
         <div class="profile-row">
-            <label for="password">Password</label>
+            <label for="password">Mot de passe</label>
             <input
                     type="password"
                     id="password"
                     name="password"
                     class="form-input"
-                    placeholder="New password">
+                    placeholder="Nouveau mot de passe"
+                    aria-label="Nouveau mot de passe">
         </div>
 
         <button type="submit" class="orange-button">

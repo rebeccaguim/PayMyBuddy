@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
-    <title>Transfer - Pay My Buddy</title>
+    <title>Transferts - Pay My Buddy</title>
     <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 
@@ -16,27 +16,48 @@
     </div>
 
     <div class="navbar-right">
-        <a href="/transfer">Transfer</a>
-        <a href="/profile">Profile</a>
-        <a href="/connection">Add connection</a>
-        <a href="/logout">Log out</a>
+        <a href="/transfer">Transferts</a>
+        <a href="/profile">Profil</a>
+        <a href="/connection">Ajouter une relation</a>
+        <a href="/logout">Déconnexion</a>
     </div>
 
 </nav>
 
 <div class="transfer-container">
 
+    <div class="balance-card">
+        <h3>
+            Solde disponible :
+            <span th:text="${user.balance}">0</span> €
+        </h3>
+    </div>
+
+    <div th:if="${error}" class="error-message">
+        Une erreur est survenue lors du transfert.
+    </div>
+
+    <div th:if="${success}" class="success-message">
+        Transfert effectué avec succès.
+    </div>
+
     <form class="transfer-form" method="post" action="/transfer">
 
-        <select class="form-input" name="receiverId" required>
-            <option value="">Select a connection</option>
+        <select
+                class="form-input"
+                name="receiverId"
+                aria-label="Sélectionner une relation"
+                required>
+
+            <option value="">Sélectionner une relation</option>
 
             <option
                     th:each="connection : ${connections}"
                     th:value="${connection.friend.id}"
                     th:text="${connection.friend.username}">
-                Friend name
+                Relation
             </option>
+
         </select>
 
         <input
@@ -44,6 +65,7 @@
                 name="description"
                 class="form-input"
                 placeholder="Description"
+                aria-label="Description du transfert"
                 required>
 
         <input
@@ -51,38 +73,41 @@
                 name="amount"
                 class="form-input amount-input"
                 placeholder="0€"
+                aria-label="Montant du transfert"
                 step="0.01"
                 min="0.01"
                 required>
 
         <button type="submit" class="form-button">
-            Pay
+            Payer
         </button>
 
     </form>
 
     <div class="transactions-card">
 
-        <h3>My Transactions</h3>
+        <h3>Mes transactions</h3>
 
         <table class="transactions-table">
 
             <thead>
             <tr>
-                <th>Connections</th>
+                <th>Relations</th>
                 <th>Description</th>
-                <th>Amount</th>
+                <th>Montant</th>
             </tr>
             </thead>
 
             <tbody>
+
             <tr th:each="transaction : ${transactions}">
-                <td th:text="${transaction.receiver.username}">Connection</td>
+                <td th:text="${transaction.receiver.username}">Relation</td>
                 <td th:text="${transaction.description}">Description</td>
                 <td>
-                    <span th:text="${transaction.amount}">0</span>€
+                    <span th:text="${transaction.amount}">0</span> €
                 </td>
             </tr>
+
             </tbody>
 
         </table>

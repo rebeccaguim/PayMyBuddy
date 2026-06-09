@@ -50,7 +50,6 @@ body {
     padding: 10px 20px;
     border-radius: 4px;
     cursor: pointer;
-    margin-top: 20px;
 }
 
 .form-button:hover {
@@ -193,4 +192,50 @@ body {
 
 .profile-row .form-input {
     width: 250px;
+}
+.balance-card {
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+.balance-card h3 {
+    margin: 0;
+    font-size: 22px;
+    font-weight: bold
+}
+.error-message {
+    background-color: #ffe5e5;
+    color: #b00020;
+    border: 1px solid #b00020;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+}
+
+.success-message {
+    background-color: #e7f7e7;
+    color: #1f7a1f;
+    border: 1px solid #1f7a1f;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+}
+
+.card .form-button {
+    margin-top: 20px;
+}
+
+.transfer-form {
+    align-items: flex-start;
+}
+
+.transfer-form .form-input,
+.transfer-form .form-button {
+    height: 44px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.transfer-form .form-button {
+    padding: 0 24px;
 }
