@@ -3,6 +3,8 @@ package com.paymybuddy.controller;
 import java.security.Principal;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,6 +23,9 @@ import com.paymybuddy.service.UserService;
  */
 @Controller
 public class TransferController {
+
+    private static final Logger logger =
+            LoggerFactory.getLogger(TransferController.class);
 
     private final UserService userService;
     private final UserConnectionService userConnectionService;
@@ -45,6 +50,11 @@ public class TransferController {
 
         User connectedUser = userService.getUserByEmail(principal.getName())
                 .orElseThrow(() -> new IllegalArgumentException("User not found"));
+
+        logger.info(
+                "Transfer page opened by {}",
+                connectedUser.getEmail()
+        );
 
         List<UserConnection> connections =
                 userConnectionService.getConnectionsByUser(connectedUser);
@@ -75,11 +85,31 @@ public class TransferController {
             User receiver = userService.getUserById(receiverId)
                     .orElseThrow(() -> new IllegalArgumentException("Receiver not found"));
 
+            logger.info(
+                    "Transfer request: sender={}, receiver={}, amount={}",
+                    sender.getEmail(),
+                    receiver.getEmail(),
+                    amount
+            );
+
             transactionService.transferMoney(sender, receiver, amount, description);
+
+            logger.info(
+                    "Transfer successful: sender={}, receiver={}, amount={}",
+                    sender.getEmail(),
+                    receiver.getEmail(),
+                    amount
+            );
 
             return "redirect:/transfer?success=ok";
 
         } catch (IllegalArgumentException exception) {
+
+            logger.error(
+                    "Transfer failed: {}",
+                    exception.getMessage()
+            );
+
             return "redirect:/transfer?error=ko";
         }
     }
