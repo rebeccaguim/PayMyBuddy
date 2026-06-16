@@ -1,32 +1,5 @@
-2026-06-11T14:56:39.599+02:00  INFO 26384 --- [paymybuddy] [main] c.paymybuddy.PaymybuddyApplicationTests  : Starting PaymybuddyApplicationTests using Java 21.0.11 with PID 26384 (started by rebek in c:\Users\rebek\PayMyBuddy\paymybuddy)
-2026-06-11T14:56:39.601+02:00 DEBUG 26384 --- [paymybuddy] [main] c.paymybuddy.PaymybuddyApplicationTests  : Running with Spring Boot v4.0.6, Spring v7.0.7
-2026-06-11T14:56:39.602+02:00  INFO 26384 --- [paymybuddy] [main] c.paymybuddy.PaymybuddyApplicationTests  : No active profile set, falling back to 1 default profile: "default"
-2026-06-11T14:56:40.636+02:00  INFO 26384 --- [paymybuddy] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-06-11T14:56:40.741+02:00  INFO 26384 --- [paymybuddy] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 76 ms. Found 3 JPA repository interfaces.
-2026-06-11T14:56:41.419+02:00  INFO 26384 --- [paymybuddy] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
-2026-06-11T14:56:41.510+02:00  INFO 26384 --- [paymybuddy] [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.12.Final
-2026-06-11T14:56:41.971+02:00  INFO 26384 --- [paymybuddy] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-06-11T14:56:42.011+02:00  INFO 26384 --- [paymybuddy] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2026-06-11T14:56:42.395+02:00  INFO 26384 --- [paymybuddy] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7574fa0
-2026-06-11T14:56:42.398+02:00  INFO 26384 --- [paymybuddy] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2026-06-11T14:56:42.528+02:00  INFO 26384 --- [paymybuddy] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
-	Database JDBC URL [jdbc:mysql://localhost:3306/mydb]
-	Database driver: MySQL Connector/J
-	Database dialect: MySQLDialect
-	Database version: 8.0.44
-	Default catalog/schema: mydb/undefined
-	Autocommit mode: undefined/unknown
-	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
-	JDBC fetch size: none
-	Pool: DataSourceConnectionProvider
-	Minimum pool size: undefined/unknown
-	Maximum pool size: undefined/unknown
-2026-06-11T14:56:43.659+02:00  INFO 26384 --- [paymybuddy] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-06-11T14:56:43.763+02:00  INFO 26384 --- [paymybuddy] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-06-11T14:56:43.872+02:00  INFO 26384 --- [paymybuddy] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
-2026-06-11T14:56:44.419+02:00  INFO 26384 --- [paymybuddy] [main] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
-2026-06-11T14:56:44.419+02:00  WARN 26384 --- [paymybuddy] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
-2026-06-11T14:56:45.258+02:00  INFO 26384 --- [paymybuddy] [main] c.paymybuddy.PaymybuddyApplicationTests  : Started PaymybuddyApplicationTests in 6.162 seconds (process running for 10.019)
-2026-06-11T14:56:45.674+02:00  INFO 26384 --- [paymybuddy] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2026-06-11T14:56:45.819+02:00  INFO 26384 --- [paymybuddy] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2026-06-11T14:56:45.828+02:00  INFO 26384 --- [paymybuddy] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-06-16T14:24:53.214+02:00  INFO 20896 --- [paymybuddy] [restartedMain] com.paymybuddy.PaymybuddyApplication     : Starting PaymybuddyApplication using Java 17.0.19 with PID 20896 (C:\Users\rebek\PayMyBuddy\paymybuddy\target\classes started by rebek in C:\Users\rebek\PayMyBuddy\paymybuddy)
+2026-06-16T14:24:53.225+02:00 DEBUG 20896 --- [paymybuddy] [restartedMain] com.paymybuddy.PaymybuddyApplication     : Running with Spring Boot v4.0.6, Spring v7.0.7
+2026-06-16T14:24:53.227+02:00  INFO 20896 --- [paymybuddy] [restartedMain] com.paymybuddy.PaymybuddyApplication     : No active profile set, falling back to 1 default profile: "default"
+2026-06-16T14:24:53.282+02:00  INFO 20896 --- [paymybuddy] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-06-16T14:24:53.283+02:00  INFO 20896 --- [paymybuddy] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'

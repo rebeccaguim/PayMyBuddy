@@ -1,50 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pay My Buddy</title>
-
-    <style>
-
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-        }
-
-        .container {
-            width: 80%;
-            margin: 50px auto;
-            text-align: center;
-        }
-
-        h1 {
-            color: #2d8cff;
-        }
-
-        p {
-            font-size: 18px;
-            color: #333;
-        }
-
-    </style>
-
+    <title>Accueil - Pay My Buddy</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 
 <body>
 
-    <div class="container">
+<div class="home-page">
 
-        <h1>Welcome to Pay My Buddy</h1>
+    <div class="home-card">
 
-        <p>
-            Your money transfer application prototype is running successfully.
+        <div class="home-logo">
+            Pay My Buddy
+        </div>
+
+        <h1>Envoyez de l'argent à votre Buddy</h1>
+
+        <p class="home-description">
+            Gérez vos relations et transférez de l'argent simplement,
+            rapidement et en toute sécurité.
         </p>
 
+        <div class="home-actions">
+            <a href="/login" class="home-button primary-button">Se connecter</a>
+            <a href="/register" class="home-button secondary-button">Créer un compte</a>
+        </div>
+
+        <div class="home-features">
+            <span>✓ Sécurisé</span>
+            <span>✓ Rapide</span>
+            <span>✓ Simple</span>
+        </div>
+
     </div>
+
+</div>
 
 </body>
 
