@@ -64,7 +64,7 @@ Le projet est organisé selon une architecture en couches :
 
 ## Modèle Physique de Données (MPD)
 
-![MPD Pay My Buddy](docs/mpd-paymybuddy.png)
+![MPD Pay My Buddy](../paymybuddy/docs/mpd-paymybuddy.png)
 
 Le modèle physique de données est composé des tables suivantes :
 
